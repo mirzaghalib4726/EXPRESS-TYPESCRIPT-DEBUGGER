@@ -3,6 +3,7 @@ import express from "express";
 import morgan from "morgan";
 //import connectDatabase from "./config/database";
 //import mySqlPool from "./config/mysql";
+import connectDatabase from "./config/database";
 import UserRouter from "./routes/user";
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.listen(PORT, async () => {
   // mySqlPool.query("SELECT 1").then(() => {
   //   console.log("MYSQL CONNECTED");
   // });
-  //await connectDatabase();
+  console.clear();
+  await connectDatabase();
   console.log(`Server is running on http://localhost:${PORT}`);
 });

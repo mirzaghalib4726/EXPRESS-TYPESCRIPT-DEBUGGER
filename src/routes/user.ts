@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
-import { mongoTimezone } from "../controller/user";
+import { createUser, getUserTimezone, mongoTimezone } from "../controller/user";
 
 const router = express.Router();
 
@@ -8,7 +8,8 @@ const loggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
   next();
 };
 
+router.post("/create", createUser);
+router.get("/getTimeZone", getUserTimezone);
 router.get("/task", loggerMiddleware, mongoTimezone);
-// router.get("/task", mongoTimezone);
 
 export default router;

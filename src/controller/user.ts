@@ -153,7 +153,9 @@ export const mongoTimezone = async (req: Request, res: Response) => {
       }
     }
 
-    return res.status(200).json({ status: 200, data: data?.send?.fcmTokens });
+    return res
+      .status(200)
+      .json({ status: 200, data: { fcmTokens: data?.send?.fcmTokens } });
   } catch (e) {
     throw error(e);
   }

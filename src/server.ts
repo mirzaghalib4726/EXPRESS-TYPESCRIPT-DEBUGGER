@@ -4,6 +4,7 @@ import morgan from "morgan";
 //import connectDatabase from "./config/database";
 //import mySqlPool from "./config/mysql";
 import connectDatabase from "./config/database";
+import OtherRouter from "./routes/others";
 import UserRouter from "./routes/user";
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/user", UserRouter);
+app.use("/others", OtherRouter);
 
 // app.use("/", (req: Request, res: Response) => {
 //   res.send("Hello, TypeScript + Node.js + Express!");

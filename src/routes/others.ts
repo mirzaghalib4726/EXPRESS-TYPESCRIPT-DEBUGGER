@@ -1,8 +1,10 @@
 import express from "express";
-import { sumArray } from "../controller/others";
+import { maxSubArray, sumArray } from "../controller/others";
 
 const router = express.Router();
 
 router.post("/sum", sumArray);
+
+router.post("/test", maxSubArray);
 
 export default router;

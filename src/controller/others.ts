@@ -41,3 +41,16 @@ export const sumArray = async (req: Request, res: Response) => {
     throw error(e);
   }
 };
+
+export const maxSubArray = (req: Request, res: Response) => {
+  const { nums } = req.body;
+  let maxSum = nums[0];
+  let currentSum = nums[0];
+
+  for (let i = 1; i < nums.length; i++) {
+    currentSum = Math.max(nums[i], currentSum + nums[i]);
+    maxSum = Math.max(maxSum, currentSum);
+  }
+
+  return res.status(200).json({ maxSum });
+};
